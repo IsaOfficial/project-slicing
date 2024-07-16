@@ -1,19 +1,49 @@
 import 'package:flutter/material.dart';
+import 'home_page.dart';
+import 'community_page.dart';
+import 'categories_page.dart';
+import 'profile_page.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
-  final Function(int) onItemTapped;
 
-  BottomNavBar({
+  const BottomNavBar({
+    super.key,
     required this.selectedIndex,
-    required this.onItemTapped,
   });
 
-  Widget _buildNavItem(String assetName, int index) {
+  Widget _buildNavItem(String assetName, int index, BuildContext context) {
     bool isSelected = selectedIndex == index;
 
     return GestureDetector(
-      onTap: () => onItemTapped(index),
+      onTap: () {
+        switch (index) {
+          case 0:
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const HomePage()),
+            );
+            break;
+          case 1:
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const CommunityPage()),
+            );
+            break;
+          case 2:
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const CategoriesPage()),
+            );
+            break;
+          case 3:
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const ProfilePage()),
+            );
+            break;
+        }
+      },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -48,7 +78,7 @@ class BottomNavBar extends StatelessWidget {
       shape: const CircularNotchedRectangle(),
       notchMargin: 8.0,
       child: Container(
-        height: 70,
+        height: 80,
         margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 1),
         decoration: BoxDecoration(
           color: const Color(0xFFFD5D69),
@@ -57,10 +87,10 @@ class BottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            _buildNavItem('Home.png', 0),
-            _buildNavItem('Community.png', 1),
-            _buildNavItem('Categories.png', 2),
-            _buildNavItem('Profile.png', 3),
+            _buildNavItem('Home.png', 0, context),
+            _buildNavItem('Community.png', 1, context),
+            _buildNavItem('Categories.png', 2, context),
+            _buildNavItem('Profile.png', 3, context),
           ],
         ),
       ),

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'btm_navbar.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -83,11 +87,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        title: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 'Hi! Isa',
                 style: TextStyle(
@@ -139,14 +143,15 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      bottomNavigationBar: const BottomNavBar(selectedIndex: 0),
     );
   }
 
   Widget _buildCircleIcon(String assetName) {
     return Container(
       padding: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        color: const Color(0xFFFFC6C9),
+      decoration: const BoxDecoration(
+        color: Color(0xFFFFC6C9),
         shape: BoxShape.circle,
       ),
       child: Image.asset(
@@ -262,9 +267,9 @@ class _HomePageState extends State<HomePage> {
                                     width: 14,
                                   ),
                                   const SizedBox(width: 4),
-                                  Text(
+                                  const Text(
                                     '30 min',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontSize: 12,
                                       color: Color(0xFFEC888D),
@@ -292,9 +297,9 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Row(
                                 children: [
-                                  Text(
+                                  const Text(
                                     '5',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontSize: 12,
                                       color: Color(0xFFEC888D),
@@ -333,8 +338,8 @@ class _HomePageState extends State<HomePage> {
                               right: 8,
                               child: Container(
                                 padding: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFFFC6C9),
+                                decoration: const BoxDecoration(
+                                  color: Color(0xFFFFC6C9),
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.asset(
@@ -364,7 +369,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Your Recipes',
           style: TextStyle(
             fontFamily: 'Poppins',
@@ -373,8 +378,8 @@ class _HomePageState extends State<HomePage> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 8),
-        Container(
+        const SizedBox(height: 8),
+        SizedBox(
           height: 200,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
@@ -382,7 +387,7 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: (context, index) {
               return Container(
                 width: 160,
-                margin: EdgeInsets.only(right: 16),
+                margin: const EdgeInsets.only(right: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   image: DecorationImage(
@@ -403,7 +408,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -413,7 +418,7 @@ class _HomePageState extends State<HomePage> {
                             Expanded(
                               child: Text(
                                 _yourRecipes[index]['name']!,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 14,
                                   color: Colors.white,
@@ -428,10 +433,10 @@ class _HomePageState extends State<HomePage> {
                                   height: 14,
                                   width: 14,
                                 ),
-                                SizedBox(width: 4),
+                                const SizedBox(width: 4),
                                 Text(
                                   _yourRecipes[index]['time']!,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 12,
                                     color: Colors.white,
@@ -441,18 +446,13 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Row(
                           children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow,
-                              size: 16,
-                            ),
-                            SizedBox(width: 4),
+                            const SizedBox(width: 4),
                             Text(
                               _yourRecipes[index]['rating']!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 12,
                                 color: Colors.white,
@@ -476,7 +476,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Top Chefs',
           style: TextStyle(
             fontFamily: 'Poppins',
@@ -485,25 +485,25 @@ class _HomePageState extends State<HomePage> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 8),
-        Container(
+        const SizedBox(height: 8),
+        SizedBox(
           height: 80,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: _topChefs.length,
             itemBuilder: (context, index) {
               return Container(
-                margin: EdgeInsets.only(right: 16),
+                margin: const EdgeInsets.only(right: 16),
                 child: Column(
                   children: [
                     CircleAvatar(
                       radius: 25,
                       backgroundImage: AssetImage(_topChefs[index]['image']!),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       _topChefs[index]['name']!,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 12,
                         color: Colors.black,
@@ -523,7 +523,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Recently Added',
           style: TextStyle(
             fontFamily: 'Poppins',
@@ -532,21 +532,21 @@ class _HomePageState extends State<HomePage> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: _recentlyAdded.length,
           itemBuilder: (context, index) {
             return Container(
-              margin: EdgeInsets.symmetric(vertical: 8),
+              margin: const EdgeInsets.symmetric(vertical: 8),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     width: 80,
                     height: 80,
-                    margin: EdgeInsets.only(right: 12),
+                    margin: const EdgeInsets.only(right: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
@@ -561,48 +561,48 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Text(
                           _recentlyAdded[index]['name']!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 14,
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(
                           _recentlyAdded[index]['description']!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 12,
                             color: Colors.black54,
                           ),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.access_time,
                               color: Color(0xFFEC888D),
                               size: 14,
                             ),
-                            SizedBox(width: 4),
+                            const SizedBox(width: 4),
                             Text(
                               _recentlyAdded[index]['time']!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 12,
                                 color: Color(0xFFEC888D),
                               ),
                             ),
-                            SizedBox(width: 8),
-                            Icon(
+                            const SizedBox(width: 8),
+                            const Icon(
                               Icons.star,
                               color: Colors.yellow,
                               size: 14,
                             ),
-                            SizedBox(width: 4),
+                            const SizedBox(width: 4),
                             Text(
                               _recentlyAdded[index]['rating']!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 12,
                                 color: Colors.black,
@@ -624,7 +624,7 @@ class _HomePageState extends State<HomePage> {
 
   String _truncateText(String text, int maxLength) {
     if (text.length > maxLength) {
-      return text.substring(0, maxLength) + '...';
+      return '${text.substring(0, maxLength)}...';
     } else {
       return text;
     }

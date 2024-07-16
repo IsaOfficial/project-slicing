@@ -4,6 +4,7 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -100,11 +101,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        title: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 'Hi! Isa',
                 style: TextStyle(
@@ -131,8 +132,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFFC6C9),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFFFC6C9),
                     shape: BoxShape.circle,
                   ),
                   child: Image.asset(
@@ -145,8 +146,8 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(width: 10),
                 Container(
                   padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFFC6C9),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFFFC6C9),
                     shape: BoxShape.circle,
                   ),
                   child: Image.asset(
@@ -307,9 +308,9 @@ class _HomePageState extends State<HomePage> {
                                     width: 14,
                                   ),
                                   const SizedBox(width: 4),
-                                  Text(
+                                  const Text(
                                     '30 min',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontSize: 12,
                                       color: Color(0xFFEC888D),
@@ -337,9 +338,9 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Row(
                                 children: [
-                                  Text(
+                                  const Text(
                                     '5',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontSize: 12,
                                       color: Color(0xFFEC888D),
@@ -378,8 +379,8 @@ class _HomePageState extends State<HomePage> {
                               right: 8,
                               child: Container(
                                 padding: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFFFC6C9),
+                                decoration: const BoxDecoration(
+                                  color: Color(0xFFFFC6C9),
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.asset(
@@ -408,7 +409,7 @@ class _HomePageState extends State<HomePage> {
   String _truncateText(String text, int maxWords) {
     List<String> words = text.split(' ');
     if (words.length > maxWords) {
-      return words.take(maxWords).join(' ') + '...';
+      return '${words.take(maxWords).join(' ')}...';
     }
     return text;
   }
@@ -622,8 +623,8 @@ class _HomePageState extends State<HomePage> {
         const SizedBox(height: 16),
         GridView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 16.0,
             crossAxisSpacing: 16.0,
@@ -687,9 +688,9 @@ class _HomePageState extends State<HomePage> {
                                       width: 14,
                                     ),
                                     const SizedBox(width: 4),
-                                    Text(
+                                    const Text(
                                       '30 min',
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontSize: 12,
                                         color: Color(0xFFEC888D),
@@ -700,9 +701,9 @@ class _HomePageState extends State<HomePage> {
                                 const SizedBox(height: 4),
                                 Row(
                                   children: [
-                                    Text(
+                                    const Text(
                                       '5',
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontSize: 12,
                                         color: Color(0xFFEC888D),

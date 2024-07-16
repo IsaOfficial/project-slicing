@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'btm_navbar.dart';
 
 class CommunityPage extends StatefulWidget {
+  const CommunityPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _CommunityPageState createState() => _CommunityPageState();
 }
 
@@ -48,8 +51,8 @@ class _CommunityPageState extends State<CommunityPage> {
   Widget _buildCircleIcon(String assetName) {
     return Container(
       padding: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        color: const Color(0xFFFFC6C9),
+      decoration: const BoxDecoration(
+        color: Color(0xFFFFC6C9),
         shape: BoxShape.circle,
       ),
       child: Image.asset(
@@ -113,13 +116,13 @@ class _CommunityPageState extends State<CommunityPage> {
             backgroundImage: AssetImage(post['profileImage']!),
           ),
           title: Text(post['username']!,
-              style: TextStyle(fontWeight: FontWeight.bold)),
+              style: const TextStyle(fontWeight: FontWeight.bold)),
           subtitle: Text(post['time']!),
         ),
         Stack(
           children: [
             Container(
-              margin: EdgeInsets.all(16), // Adjust the margin as needed
+              margin: const EdgeInsets.all(16), // Adjust the margin as needed
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
@@ -139,44 +142,47 @@ class _CommunityPageState extends State<CommunityPage> {
                   borderRadius: BorderRadius.circular(15),
                   color: const Color(0xFFFD5D69),
                 ),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(post['title']!,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 16)),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text(post['description']!,
-                        style: TextStyle(color: Colors.white)),
-                    SizedBox(height: 5),
+                        style: const TextStyle(color: Colors.white)),
+                    const SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.star, color: Colors.white, size: 16),
-                            SizedBox(width: 5),
+                            const Icon(Icons.star,
+                                color: Colors.white, size: 16),
+                            const SizedBox(width: 5),
                             Text(post['rating']!,
-                                style: TextStyle(color: Colors.white))
+                                style: const TextStyle(color: Colors.white))
                           ],
                         ),
                         Row(
                           children: [
-                            Icon(Icons.timer, color: Colors.white, size: 16),
-                            SizedBox(width: 5),
+                            const Icon(Icons.timer,
+                                color: Colors.white, size: 16),
+                            const SizedBox(width: 5),
                             Text(post['cookingTime']!,
-                                style: TextStyle(color: Colors.white))
+                                style: const TextStyle(color: Colors.white))
                           ],
                         ),
                         Row(
                           children: [
-                            Icon(Icons.comment, color: Colors.white, size: 16),
-                            SizedBox(width: 5),
+                            const Icon(Icons.comment,
+                                color: Colors.white, size: 16),
+                            const SizedBox(width: 5),
                             Text(post['comments']!,
-                                style: TextStyle(color: Colors.white))
+                                style: const TextStyle(color: Colors.white))
                           ],
                         ),
                       ],
@@ -187,7 +193,7 @@ class _CommunityPageState extends State<CommunityPage> {
             ),
           ],
         ),
-        Divider(),
+        const Divider(),
       ],
     );
   }
@@ -200,15 +206,11 @@ class _CommunityPageState extends State<CommunityPage> {
         leading: IconButton(
           icon: Image.asset('assets/icons/BackArrow.png'),
           onPressed: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => MainScreen()),
-              (Route<dynamic> route) => false,
-            );
+            Navigator.pushNamed(context, '/');
           },
         ),
         title:
-            Text('Community', style: TextStyle(color: const Color(0xFFFD5D69))),
+            const Text('Community', style: TextStyle(color: Color(0xFFFD5D69))),
         centerTitle: true,
         actions: [
           Padding(
@@ -223,7 +225,7 @@ class _CommunityPageState extends State<CommunityPage> {
           ),
         ],
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(50.0),
+          preferredSize: const Size.fromHeight(50.0),
           child: _buildCommunityCategoryList(),
         ),
       ),
@@ -233,6 +235,7 @@ class _CommunityPageState extends State<CommunityPage> {
           return _buildPost(_posts[index]);
         },
       ),
+      bottomNavigationBar: const BottomNavBar(selectedIndex: 1),
     );
   }
 }
