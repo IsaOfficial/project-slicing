@@ -16,7 +16,7 @@ class _CommunityPageState extends State<CommunityPage> {
     {
       'username': 'Josh Ryan',
       'time': '2 days ago',
-      'profileImage': 'assets/images/profile1.png',
+      'profileImage': 'assets/images/Andrew.jpg',
       'postImage': 'assets/images/Spicy Pasta.jpg',
       'title': 'Delicious Pasta',
       'description': 'A simple and quick pasta recipe.',
@@ -27,7 +27,7 @@ class _CommunityPageState extends State<CommunityPage> {
     {
       'username': 'Dakota Mullen',
       'time': '5 days ago',
-      'profileImage': 'assets/images/profile2.png',
+      'profileImage': 'assets/images/Emily.jpg',
       'postImage': 'assets/images/Pancakes.jpg',
       'title': 'Pancake',
       'description': 'A delicious cake recipe.',
@@ -38,7 +38,7 @@ class _CommunityPageState extends State<CommunityPage> {
     {
       'username': 'Cia Food',
       'time': '1 week ago',
-      'profileImage': 'assets/images/profile3.png',
+      'profileImage': 'assets/images/Jessica.jpg',
       'postImage': 'assets/images/Healthy Salad.jpeg',
       'title': 'Healthy Salad',
       'description': 'A healthy and easy salad recipe.',
